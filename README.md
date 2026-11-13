@@ -51,6 +51,20 @@ flowchart TD
 
 Everything runs on your machine. Jira is read, never changed, except for the comments you approve; the tool never assigns tickets or changes status, sprint or fields.
 
+## What you get every morning
+
+A sample built by the real code from **made-up data** (an invented team, "Acme", with three projects). Your own pages look the same, filled with your Jira.
+
+**PM overview** (`startpm` opens it): projects at a glance, delivery forecast, releases, risk register, effort and overruns, new and updated client tickets, action items.
+
+![Sample PM overview](docs/sample/overview-top.png)
+
+**Executive report**: eight sections, each item tagged URGENT, ATTENTION or INFO.
+
+![Sample executive report](docs/sample/executive-report-top.png)
+
+Open the full samples: [PM overview](https://htmlpreview.github.io/?https://github.com/shasan7774bs23/agentic-pm-autopilot/blob/main/docs/sample/sample-overview.html) · [Executive report](https://htmlpreview.github.io/?https://github.com/shasan7774bs23/agentic-pm-autopilot/blob/main/docs/sample/sample-executive-report.html) · [full-page screenshot](docs/sample/overview-full.png). The HTML files are also in [`docs/sample/`](docs/sample/) to download and open in a browser; `docs/sample/make_sample.py` rebuilds them.
+
 ## Install (once per machine)
 
 1. Install **Python 3.11+**, **Git**, **Node.js 20+** and **Claude Code** (`npm install -g @anthropic-ai/claude-code`).
