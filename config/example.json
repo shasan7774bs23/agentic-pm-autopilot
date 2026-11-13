@@ -1,0 +1,137 @@
+{
+  "_note": "Example team config with made-up values. Real team configs name clients and systems: keep them PRIVATE.",
+  "team_name": "Acme",
+  "timezone_label": "UTC+1",
+  "project_names": {
+    "APP": "App",
+    "WEB": "Web",
+    "AUTH": "Auth"
+  },
+  "allowed_terms": [
+    "ACME"
+  ],
+  "digest_repo": "your-account/your-private-pm-layer",
+  "notify_login": null,
+  "digest_cron_utc": "08:00",
+  "project_notes": "~/.pmauto/teams/acme-notes.md",
+  "meetings": {
+    "series_subject": "Weekly client sync"
+  },
+  "live_sites": {
+    "APP": {
+      "url": "https://app.example.com"
+    }
+  },
+  "test_accounts_file": null,
+  "live_account": "readonly-admin",
+  "login": {
+    "username": "input[type=email]",
+    "password": "input[type=password]",
+    "submit": "button[type=submit]"
+  },
+  "version_pattern": "\\bv(\\d+\\.\\d+\\.\\d+(?:\\.\\d+)?)\\b",
+  "internal_comment_group": null,
+  "new_client_ticket_window_days": 7,
+  "action_window_days": 30,
+  "thresholds_business_days": {
+    "untriaged": 1,
+    "waiting_on_us": 1,
+    "stuck": 3,
+    "parked": 10
+  },
+  "bot_name_markers": [
+    "Tempo",
+    "Automation for Jira",
+    "Connector for",
+    "Jira Service",
+    "Bitbucket",
+    "GitHub"
+  ],
+  "hours_per_story_point": 8,
+  "focus_hours_per_day": 6,
+  "velocity_done_key": "sp_true_done",
+  "models": {
+    "analysis": "haiku",
+    "analysis_fallback": "sonnet",
+    "meeting_filter": "haiku",
+    "effort": "low"
+  },
+  "fields": {
+    "story_points": "customfield_10016",
+    "sprint": "customfield_10020"
+  },
+  "timezone_offset_hours": 1,
+  "workdays": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "status_groups": {
+    "not_started": [
+      "to do"
+    ],
+    "in_progress": [
+      "in progress"
+    ],
+    "review": [
+      "code review"
+    ],
+    "qa": [
+      "qa"
+    ],
+    "parked": [
+      "awaiting sign-off"
+    ],
+    "ready_to_deploy": [
+      "ready to deploy"
+    ],
+    "true_done": [
+      "done"
+    ]
+  },
+  "estimate_unit_hours": 8,
+  "projects": [
+    "APP",
+    "WEB",
+    "AUTH"
+  ],
+  "boards": {
+    "APP": 1,
+    "WEB": 2,
+    "AUTH": 3
+  },
+  "client_accounts": {
+    "client-0001": "Client One",
+    "client-0002": "Client Two",
+    "connector-0001": "Connector app"
+  },
+  "report_title": "Acme daily PM digest",
+  "dashboard_name": "Acme Delivery (auto)",
+  "filter_prefix": "Acme auto · ",
+  "code_repos": {
+    "APP": {
+      "repo": "{mirror_root}/app.git",
+      "branch": "main",
+      "remote": "https://github.com/acme/app.git"
+    },
+    "WEB": {
+      "repo": "{mirror_root}/web.git",
+      "branch": "newest-release",
+      "release_branch_pattern": "release/(\\d+(?:\\.\\d+)*)",
+      "fallback_branch": "main",
+      "remote": "https://github.com/acme/web.git"
+    }
+  },
+  "estimate_comment_labels": {
+    "DEV": "dev",
+    "REV": "review",
+    "QA": "qa"
+  },
+  "client_reference": {
+    "label": "Request",
+    "pattern": "REQ-(\\d+)\\s*$"
+  },
+  "clarification_sprint": "Waiting for client"
+}

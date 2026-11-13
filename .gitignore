@@ -1,0 +1,10 @@
+out/
+__pycache__/
+*.pyc
+.env
+*.env
+credentials*
+config/*.json
+!config/example.json
+tools/node_modules/
+*.sqlite

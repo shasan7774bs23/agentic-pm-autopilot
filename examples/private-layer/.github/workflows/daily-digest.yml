@@ -1,0 +1,52 @@
+# Copy this file into your PRIVATE team repo (never run it from the public pm-autopilot repo:
+# the digest contains ticket text). The private repo holds:
+#   config/team.json      your team config (written by `pm setup`)
+#   ci-config.json        {"team_config": "config/team.json", "owner_name": "...", "notify_login": "<your GitHub login>",
+#                          "analyses_dir": "out/analyses", "reports_dir": "out/reports", "mirror_root": "out/mirrors"}
+# Secrets (repo Settings > Secrets > Actions): JIRA_BASE_URL, JIRA_EMAIL, JIRA_API_TOKEN.
+# Kill switch: set the repository variable AGENT_ENABLED to false.
+name: daily-digest
+
+on:
+  schedule:
+    - cron: "0 8 * * 1-5"   # 08:00 UTC, Monday to Friday; change to your morning
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: daily-digest
+  cancel-in-progress: false
+
+jobs:
+  digest:
+    if: vars.AGENT_ENABLED != 'false'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4                  # this private repo: your config
+      - uses: actions/checkout@v4                  # the public tool
+        with:
+          repository: shasan7774bs23/pm-autopilot
+          path: tool
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build and deliver digest
+        working-directory: tool
+        env:
+          PMAUTO_CONFIG: ${{ github.workspace }}/ci-config.json
+          JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
+          JIRA_EMAIL: ${{ secrets.JIRA_EMAIL }}
+          JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   # the issue is created in THIS private repo
+        run: python -m pmauto daily --deliver file,github --out ${{ github.workspace }}/out
+      - name: Keep full reports for 30 days
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pm-reports
+          path: out/
+          retention-days: 30

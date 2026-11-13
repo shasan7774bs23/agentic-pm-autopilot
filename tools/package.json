@@ -1,0 +1,8 @@
+{
+  "name": "pmauto-tools",
+  "private": true,
+  "description": "Browser for the read-only live-site checks. Installed by: python -m pmauto setup",
+  "dependencies": {
+    "playwright-core": "1.64.1"
+  }
+}
