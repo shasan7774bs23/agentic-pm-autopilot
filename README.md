@@ -121,3 +121,7 @@ The digest is a GitHub issue that GitHub emails to you every working morning. It
 ## Tests
 
 `python -m unittest discover -s tests -t .` (no network, uses a made-up config in `tests/fixture_config.json`).
+
+## Licence
+
+MIT: see [LICENSE](LICENSE).
