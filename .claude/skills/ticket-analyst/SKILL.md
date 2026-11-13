@@ -1,6 +1,6 @@
 ---
 name: ticket-analyst
-description: Start-of-day PM work and single-ticket analysis for the projects configured in pm-autopilot-ai. Use when the PM says "startpm", "good morning", "what needs analysis", "analyse ABC-123", "check the meeting", "wrap up" or "post it". Analyses client tickets against the code (read-only repo mirrors) and the live app, grades them against the Definition of Ready, drafts plain-English Jira comments, and runs the daily management reports. Posts only on the PM's explicit word for that ticket.
+description: Start-of-day PM work and single-ticket analysis for the projects configured in agentic-pm-autopilot. Use when the PM says "startpm", "good morning", "what needs analysis", "analyse ABC-123", "check the meeting", "wrap up" or "post it". Analyses client tickets against the code (read-only repo mirrors) and the live app, grades them against the Definition of Ready, drafts plain-English Jira comments, and runs the daily management reports. Posts only on the PM's explicit word for that ticket.
 ---
 
 # Ticket Analyst (Claude Code is the driver; the PM gives the instructions)

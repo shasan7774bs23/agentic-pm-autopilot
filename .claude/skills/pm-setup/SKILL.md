@@ -1,6 +1,6 @@
 ---
 name: pm-setup
-description: One-time setup of pm-autopilot-ai on a new machine, for all of the person's projects at once. Use when someone says "pm setup", "set up pm-autopilot-ai", "install", "configure my projects", "add a project", or when `python -m pmauto info` / `startpm` says the machine is not set up. Checks prerequisites, reads Jira to pre-fill everything it can, asks only what Jira cannot tell, writes the config, and proves it works.
+description: One-time setup of agentic-pm-autopilot on a new machine, for all of the person's projects at once. Use when someone says "pm setup", "set up agentic-pm-autopilot", "install", "configure my projects", "add a project", or when `python -m pmauto info` / `startpm` says the machine is not set up. Checks prerequisites, reads Jira to pre-fill everything it can, asks only what Jira cannot tell, writes the config, and proves it works.
 ---
 
 # pm-setup: get a new machine fully working, once
