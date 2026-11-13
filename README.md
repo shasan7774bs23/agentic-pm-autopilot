@@ -9,6 +9,48 @@ PM Autopilot AI turns **Claude Code into the orchestrating project manager for a
 
 Scripts do the repetitive work with no AI: reading Jira, change detection, version checks, the work list, history, forecasts, the audit log and reports. Claude Code does the thinking: analysis, questions, plain-English writing, matching meeting clarifications to tickets, and reviewing its own subagents' work.
 
+## How it works
+
+```mermaid
+flowchart TD
+    subgraph ONCE["Once per machine"]
+        S1["pm setup"] --> S2["Reads Jira: boards, fields, statuses, clients, estimate style"]
+        S2 --> S3["Asks only what Jira cannot tell"]
+        S3 --> S4["Writes ~/.pmauto config, clones read-only code mirrors"]
+    end
+
+    subgraph MORNING["Every morning: startpm"]
+        M1["Refresh code mirrors"] --> M2["Live-site version check and release drift"]
+        M2 --> M3["Work list: client tickets new or changed since last run"]
+        M3 --> M4["Management layer: velocity, forecasts, effort, risk register"]
+        M4 --> M5["Executive report and overview page"]
+    end
+
+    subgraph TICKET["Per ticket: analyse KEY"]
+        T1["Ticket text, comments, attachments"] --> T4
+        T2["Code from the mirrors"] --> T4
+        T3["Live app screenshots, read-only"] --> T4
+        T4["Claude checks Definition of Ready"] --> T5["Verdict: READY, NEEDS CLARIFICATION or BLOCKED"]
+        T5 --> T6["Local technical analysis"]
+        T5 --> T7["Plain-English comment draft"]
+    end
+
+    subgraph POST["Only on your word"]
+        P1{"You review and say post it"} -->|yes| P2["Comment checker: no code, jargon or estimates"]
+        P2 --> P3["Dry run, then posted to Jira and logged"]
+        P1 -->|no| P4["Nothing leaves your machine"]
+    end
+
+    S4 --> M1
+    M3 --> T1
+    T7 --> P1
+    P3 --> E1["wrap up: end-of-day report"]
+    M5 --> PM(["You, the PM"])
+    E1 --> PM
+```
+
+Everything runs on your machine. Jira is read, never changed, except for the comments you approve; the tool never assigns tickets or changes status, sprint or fields.
+
 ## Install (once per machine, about 15 minutes)
 
 1. Install **Python 3.11+**, **Git**, **Node.js 20+** and **Claude Code** (`npm install -g @anthropic-ai/claude-code`).
