@@ -1,4 +1,4 @@
-# pm-autopilot: rules for Claude Code in this folder
+# pm-autopilot-ai: rules for Claude Code in this folder
 
 - Read `README.md` for what the system does. Tickets are worked with `.claude/skills/ticket-analyst/SKILL.md`; a new machine is set up with `.claude/skills/pm-setup/SKILL.md`. Run `python -m pmauto info` at the start of a session to see this machine's projects and settings; if it says NOT SET UP, use the pm-setup skill.
 - **The main Claude Code session is the orchestrator.** It decides which model each task goes to, hands the task to a subagent, and **reviews every result before the PM sees it**. A result that fails review is sent back with the specific gaps, or redone on a stronger model. **Quality of the output comes first; token economy second.**

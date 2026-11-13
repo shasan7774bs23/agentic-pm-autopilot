@@ -1,4 +1,4 @@
-# Copy this file into your PRIVATE team repo (never run it from the public pm-autopilot repo:
+# Copy this file into your PRIVATE team repo (never run it from the public pm-autopilot-ai repo:
 # the digest contains ticket text). The private repo holds:
 #   config/team.json      your team config (written by `pm setup`)
 #   ci-config.json        {"team_config": "config/team.json", "owner_name": "...", "notify_login": "<your GitHub login>",
@@ -29,7 +29,7 @@ jobs:
       - uses: actions/checkout@v4                  # this private repo: your config
       - uses: actions/checkout@v4                  # the public tool
         with:
-          repository: shasan7774bs23/pm-autopilot
+          repository: shasan7774bs23/pm-autopilot-ai
           path: tool
       - uses: actions/setup-python@v5
         with:

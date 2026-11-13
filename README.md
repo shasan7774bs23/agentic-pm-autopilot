@@ -1,6 +1,6 @@
-# PM Autopilot
+# PM Autopilot AI
 
-PM Autopilot turns **Claude Code into the orchestrating project manager for any Jira project**, on your own machine.
+PM Autopilot AI turns **Claude Code into the orchestrating project manager for any Jira project**, on your own machine.
 
 - **Every morning** (`startpm`) it reads Jira and finds new and changed client tickets. It refreshes read-only copies of your code and checks that the version on your live site matches the code. It then opens one page with every project at a glance, forecasts, risks, effort, new tickets and client updates.
 - **For each client ticket** it reads the ticket, the code and the live app, and grades the ticket against a Definition of Ready. It writes a technical analysis for you and a **plain-English Jira comment** (a specification, or precise questions for the client).
@@ -12,7 +12,7 @@ Scripts do the repetitive work with no AI: reading Jira, change detection, versi
 ## Install (once per machine, about 15 minutes)
 
 1. Install **Python 3.11+**, **Git**, **Node.js 20+** and **Claude Code** (`npm install -g @anthropic-ai/claude-code`).
-2. `git clone https://github.com/shasan7774bs23/pm-autopilot.git` and open Claude Code in that folder.
+2. `git clone https://github.com/shasan7774bs23/pm-autopilot-ai.git` and open Claude Code in that folder.
 3. Say **`pm setup`**. Claude Code will:
    - check the machine and create `~/.pmauto/`;
    - ask you to type your Jira site, email and API token into `~/.pmauto/credentials.env` (secrets never go through the chat);

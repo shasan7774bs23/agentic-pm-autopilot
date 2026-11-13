@@ -22,7 +22,7 @@ import sys
 from . import settings
 from .mirrors import GIT_CRED
 
-CRED_TEMPLATE = """# pm-autopilot credentials for this machine. Never commit or share this file.
+CRED_TEMPLATE = """# pm-autopilot-ai credentials for this machine. Never commit or share this file.
 # Jira API token: https://id.atlassian.com/manage-profile/security/api-tokens
 JIRA_BASE_URL=https://your-site.atlassian.net
 JIRA_EMAIL=you@example.com
@@ -258,12 +258,12 @@ def write_config(answers_path):
     if missing:
         raise SystemExit(f"answers are missing: {', '.join(missing)}")
     home = os.path.expanduser("~")
-    machine = {"_note": "This machine's pm-autopilot settings. Not committed anywhere.",
+    machine = {"_note": "This machine's pm-autopilot-ai settings. Not committed anywhere.",
                "analyses_dir": os.path.join(home, "PM-Automation", "analyses"),
                "reports_dir": os.path.join(home, "PM-Automation", "reports"),
                "mirror_root": os.path.join(home, "pm-mirrors")}
     machine.update({k: a[k] for k in MACHINE_KEYS if k in a})
-    team = {"_note": "Team config for pm-autopilot. Names clients and systems: keep it in a PRIVATE place."}
+    team = {"_note": "Team config for pm-autopilot-ai. Names clients and systems: keep it in a PRIVATE place."}
     team.update({k: a[k] for k in TEAM_KEYS if k in a})
     lines = []
     team_path = a.get("team_config")

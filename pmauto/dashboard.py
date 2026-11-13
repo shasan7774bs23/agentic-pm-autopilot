@@ -54,7 +54,7 @@ def ensure(jira, cfg):
         full = prefix + name
         found = jira.get("/rest/api/3/filter/search", filterName=full, accountId=me, expand="jql")["values"]
         found = [f for f in found if f["name"] == full]
-        body = {"name": full, "jql": jql, "description": "Created by pm-autopilot", "sharePermissions": []}
+        body = {"name": full, "jql": jql, "description": "Created by pm-autopilot-ai", "sharePermissions": []}
         if found:
             f = jira.req("PUT", f"/rest/api/3/filter/{found[0]['id']}", body=body)
         else:
@@ -68,7 +68,7 @@ def ensure(jira, cfg):
         dash = existing[0]
     else:
         dash = jira.req("POST", "/rest/api/3/dashboard", body={
-            "name": name, "description": f"{cfg.get('team_name', 'Team')} delivery overview (private). Managed by pm-autopilot.",
+            "name": name, "description": f"{cfg.get('team_name', 'Team')} delivery overview (private). Managed by pm-autopilot-ai.",
             "sharePermissions": [], "editPermissions": []})
     current = jira.get(f"/rest/api/3/dashboard/{dash['id']}/gadget")["gadgets"]
     have = {g.get("title") for g in current}
