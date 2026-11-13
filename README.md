@@ -51,7 +51,7 @@ flowchart TD
 
 Everything runs on your machine. Jira is read, never changed, except for the comments you approve; the tool never assigns tickets or changes status, sprint or fields.
 
-## Install (once per machine, about 15 minutes)
+## Install (once per machine)
 
 1. Install **Python 3.11+**, **Git**, **Node.js 20+** and **Claude Code** (`npm install -g @anthropic-ai/claude-code`).
 2. `git clone https://github.com/shasan7774bs23/agentic-pm-autopilot.git` and open Claude Code in that folder.
